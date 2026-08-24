@@ -1,0 +1,51 @@
+DO YOU CONSIDER YOURSELF A SMART PERSON? — ULTIMATE GAME BRAIN EDITION
+
+WHAT CHANGED
+- Word Scramble now displays one continuous scrambled word with NO spaces.
+- Previous / Random Next remains available for every game.
+- Audience Clean View keeps Exit Audience View visible.
+- Edit/Settings Done header is moved down while Audience View is active so the buttons do not overlap.
+- Recognizable 30-second Pictionary remains included.
+- GameShowAnthem.m4a is included and Safari audio uses first-interaction unlocking.
+- LIVE Game Brain added with JOIN, first-correct detection, fuzzy answer matching, viewer profiles, teams, random events, leaderboard, and a rule-based Game Show Director.
+- Show Builder and QA / Diagnostics are inside Edit / Settings.
+
+IMPORTANT ABOUT TIKTOK CHAT
+The game engine can process live comments now, but this ZIP does NOT secretly bypass TikTok access controls. Real automatic TikTok comment ingestion needs an authorized TikTok integration or an external bridge that forwards comments into:
+
+window.liveGame.receiveEvent({
+  platform: "tiktok",
+  type: "comment",
+  username: "BigMike23",
+  message: "clock",
+  timestamp: Date.now()
+});
+
+You can test the complete Game Brain immediately in Edit → LIVE Game Brain using the Username + Comment fields.
+
+STEP-BY-STEP AFTER UPDATING GITHUB
+1. Unzip this package.
+2. Replace the files in your GitHub Pages repository with all files in this package.
+3. Make sure index.html, service-worker.js, manifest.webmanifest and GameShowAnthem.m4a are at the repository root.
+4. Commit the changes.
+5. Wait 1–3 minutes for GitHub Pages to redeploy.
+6. On iPhone Safari, open the published site and refresh. If an older version remains, close the Home Screen app/Safari tab and reopen the GitHub Pages URL.
+7. Tap anywhere once to unlock Safari audio, then tap Music. Use Edit → Music & Audio → Test Audio if needed.
+8. Open Edit → Quality Assurance & Diagnostics → Run App Self-Test. You should see all checks pass.
+9. Test Scramble: select Scramble → Random Next. The scrambled letters should have no spaces.
+10. Test Previous: press Random Next twice, then Previous. It should return to the earlier item.
+11. Test Pictionary: select Pictionary → Random Next → Start. A recognizable drawing should progressively appear over 30 seconds.
+12. Test Audience Clean View: Edit → Ghost / Transparency → Audience Clean View. Confirm Exit Audience View stays visible. Open Edit and confirm Done is not covered.
+13. Test Game Brain: Edit → LIVE Game Brain → Enable Game Brain. Enter username TestPlayer and message JOIN, then Send LIVE Event.
+14. Start a riddle or scramble. Enter the correct answer as TestPlayer. The app should identify the first correct answer, award points, show the winner, and update the persistent leaderboard.
+15. Test Teams: Edit → Contestants, Teams & Profiles → CHAT vs CHAT Teams. Send RED for one test user and BLUE for another. Correct answers add points to that player’s team.
+16. For TikTok screen capture, use Audience Clean View + Battle Compact or Ghost Overlay. Keep host settings closed during the show.
+
+RECOMMENDED LIVE WORKFLOW
+- Before LIVE: Edit → Show Builder and select your style.
+- Start music with one deliberate tap.
+- Turn Game Brain on.
+- Use Audience Clean View for the captured browser source.
+- Keep a separate host browser/window if possible for Edit controls and testing.
+- Have chat type JOIN, then RED/BLUE if Teams mode is enabled.
+- Run a manual Game Brain test before every LIVE.
