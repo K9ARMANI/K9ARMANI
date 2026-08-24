@@ -18,3 +18,13 @@ PICTIONARY FIX
 - Added Compact Pictionary Overlay (enabled by default) under TikTok Display for a smaller, less bulky screen capture.
 - Audience Clean View keeps the Exit Audience View button visible.
 - Existing audio fix and layout are preserved.
+
+
+MULTI-PLATFORM CONNECTOR HUB
+- One normalized event format feeds the Game Brain.
+- Included local Node bridge serves the app and broadcasts events using Server-Sent Events.
+- YouTube LIVE adapter included (YouTube Data API liveChatMessages).
+- Twitch adapter included (EventSub WebSocket channel.chat.message).
+- TikTok authorized-ingest endpoint included for approved/external sources.
+- Generic POST ingest endpoint included for future platforms.
+- Manual Host input still works without any connector.

@@ -1,0 +1,55 @@
+MULTI-PLATFORM LIVE GAME BRAIN — START HERE
+
+WHAT THIS VERSION DOES
+The same Game Brain can now receive normalized LIVE events from TikTok, YouTube LIVE, Twitch, Generic Webhooks, or Manual Host input.
+
+FASTEST TEST
+1. Double-click START_MULTI_PLATFORM.command on your Mac.
+2. The app opens at http://127.0.0.1:8787
+3. Open Edit → LIVE Platform Connectors.
+4. Bridge URL should be http://127.0.0.1:8787
+5. Press Connect Bridge.
+6. Enable Edit → LIVE Game Brain → Enable Game Brain.
+7. Press Send Test Event under Connectors. "BridgeTest" should JOIN.
+
+YOUTUBE LIVE
+1. Create a Google Cloud project and enable YouTube Data API v3.
+2. Create an API key.
+3. Open bridge/connector-config.json.
+4. Set youtube.enabled to true.
+5. Paste apiKey.
+6. Enter either the live videoId OR an active liveChatId.
+7. Save the file.
+8. Restart START_MULTI_PLATFORM.command (or POST /reload-config).
+9. Connector status should change to YouTube LIVE.
+
+TWITCH
+1. Create a Twitch developer application and get a Client ID.
+2. Obtain a USER OAuth token with user:read:chat for the account that will read chat.
+3. Get broadcasterUserId and userId.
+4. Put them in bridge/connector-config.json and set twitch.enabled to true.
+5. Restart the bridge.
+6. Twitch status should change to Live after the EventSub subscription succeeds.
+
+TIKTOK
+TikTok's public developer docs do not currently expose a general public LIVE-comment stream for normal web apps. This build therefore provides a clean TikTok ingest endpoint:
+  POST /ingest/tiktok
+Any authorized/approved TikTok connector can send normalized events there without changing the games.
+
+NORMALIZED EVENT FORMAT
+{
+  "platform": "tiktok",
+  "type": "comment",
+  "username": "BigMike23",
+  "message": "clock",
+  "timestamp": 1787534842000
+}
+
+GENERIC / FUTURE PLATFORMS
+POST the same format to /ingest and set platform to youtube, twitch, kick, facebook, etc.
+
+IMPORTANT SECURITY
+Do not put OAuth tokens, API secrets, or bridge secrets in index.html or GitHub Pages. Keep them server-side in bridge/connector-config.json or environment variables on a hosted bridge.
+
+GITHUB PAGES VS BRIDGE
+GitHub Pages can host the visual game app, but it cannot run this Node bridge. For a fully cloud-hosted setup, deploy the bridge folder to a Node-capable host and set Bridge URL in Edit to its HTTPS URL.
